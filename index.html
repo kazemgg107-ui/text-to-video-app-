@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مولد الفيديو الذكي - Nexus AI</title>
+    <title>ديوان الثار - مولد الفيديو الذكي</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -15,14 +15,12 @@
             --border-color: #30363d;
             --success-color: #238636;
         }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -32,7 +30,6 @@
             min-height: 100vh;
             padding: 20px;
         }
-
         .container {
             width: 100%;
             max-width: 700px;
@@ -42,37 +39,31 @@
             padding: 24px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
         .header {
             text-align: center;
             margin-bottom: 24px;
         }
-
         .header h1 {
             color: var(--accent-hover);
             font-size: 1.8rem;
             margin-bottom: 8px;
         }
-
         .header p {
             color: var(--text-muted);
             font-size: 0.95rem;
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
+            font-weight: bold;
             color: var(--text-main);
         }
-
         textarea {
             width: 100%;
-            height: 100px;
+            height: 120px;
             background-color: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -80,38 +71,76 @@
             color: var(--text-main);
             font-size: 1rem;
             resize: vertical;
-            outline: none;
         }
-
         textarea:focus {
+            outline: none;
             border-color: var(--accent-color);
         }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        select {
+        .btn {
             width: 100%;
-            padding: 10px;
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-main);
-            outline: none;
-        }
-
-        .btn-generate {
-            width: 100%;
-            padding: 14px;
             background-color: var(--accent-color);
             color: white;
             border: none;
             border-radius: 8px;
-            font-size: 1.1rem;
+            padding: 12px;
+            font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.2
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 16px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        .camel-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ديوان الثار - مولد الفيديو 🐪⚔️</h1>
+            <p>اكتب وصف المشهد، ودع الجمل الطائر ينطلق بالصكوك!</p>
+        </div>
+        
+        <div class="form-group">
+            <label for="promptInput">وصف الفيديو المطلوب:</label>
+            <textarea id="promptInput" placeholder="اكتب وصفك هنا يا شيخنا (مثلاً: معركة تاريخية في صحراء الرمثا)..."></textarea>
+        </div>
+        
+        <button class="btn" onclick="generateVideo()">إطلاق الجمل وتوليد الفيديو 🚀</button>
+        
+        <div class="result-box" id="resultBox">
+            <div class="camel-icon">🐪✨</div>
+            <h3 style="color: var(--success-color); margin-bottom: 8px;">تم تجهيز الفيديو بنجاح!</h3>
+            <p style="color: var(--text-muted);">جملك الطائر حلق بالسما ورجع الثأر لعيون ربعك.</p>
+        </div>
+    </div>
+
+    <script>
+        function generateVideo() {
+            const text = document.getElementById('promptInput').value;
+            if(!text.trim()) {
+                alert('يا شيخنا اكتب وصف المشهد بالاول!');
+                return;
+            }
+            const btn = document.querySelector('.btn');
+            btn.textContent = 'جاري إطلاق الجمل... 🐪';
+            setTimeout(() => {
+                btn.textContent = 'إطلاق الجمل وتوليد الفيديو 🚀';
+                document.getElementById('resultBox').style.display = 'block';
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
